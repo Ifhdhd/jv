@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Auto Feedback System</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+/* BACKGROUND */
+body{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  overflow:hidden;
+}
+
+/* WRAPPER */
+.landing{
+  text-align:center;
+  max-width:600px;
+  width:100%;
+}
+
+/* TITLE */
+.landing h1{
+  font-family:'Orbitron',sans-serif;
+  font-size:38px;
+  margin-bottom:15px;
+  color:#22d3ee;
+
+  text-shadow:
+    0 0 15px rgba(34,211,238,.6),
+    0 0 40px rgba(34,211,238,.4);
+}
+
+/* SUBTITLE */
+.landing p{
+  color:#94a3b8;
+  margin-bottom:40px;
+  font-size:14px;
+}
+
+/* BUTTON GROUP */
+.btn-group{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+/* BUTTON CUSTOM */
+.btn-landing{
+  padding:18px;
+  border-radius:20px;
+  font-weight:700;
+  font-size:15px;
+  letter-spacing:1px;
+  cursor:pointer;
+  border:none;
+  transition:.3s;
+}
+
+/* AUTO FEEDBACK */
+.btn-auto{
+  background:linear-gradient(90deg,#2563eb,#06b6d4);
+  color:white;
+
+  box-shadow:
+    0 0 20px rgba(37,99,235,.4);
+}
+
+.btn-auto:hover{
+  transform:translateY(-4px);
+  box-shadow:
+    0 10px 30px rgba(37,99,235,.6);
+}
+
+/* SCHEDULE */
+.btn-schedule{
+  background:linear-gradient(90deg,#22c55e,#16a34a);
+  color:white;
+
+  box-shadow:
+    0 0 20px rgba(34,197,94,.4);
+}
+
+.btn-schedule:hover{
+  transform:translateY(-4px);
+  box-shadow:
+    0 10px 30px rgba(34,197,94,.6);
+}
+
+/* FOOTER */
+.footer{
+  margin-top:40px;
+  font-size:12px;
+  color:#64748b;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="landing">
+
+  <h1>Auto Feedback System</h1>
+
+  <p>
+    Pilih fitur yang ingin digunakan
+  </p>
+
+  <div class="btn-group">
+
+    <button
+      class="btn-landing btn-auto"
+      onclick="goAutoFeedback()"
+    >
+      🚀 Auto Feedback
+    </button>
+
+    <button
+      class="btn-landing btn-schedule"
+      onclick="goSchedule()"
+    >
+      📅 Schedule Feedback
+    </button>
+
+  </div>
+
+  <div class="footer">
+    Powered by Deferx ⚡
+  </div>
+
+</div>
+
+<script>
+
+/*
+|--------------------------------------------------------------------------
+| REDIRECT
+|--------------------------------------------------------------------------
+*/
+
+function goAutoFeedback(){
+
+  window.location.href =
+    "https://afb-backend-wyjf.onrender.com";
+
+}
+
+function goSchedule(){
+
+  window.location.href =
+    "https://autofeedback-backend.onrender.com/";
+
+}
+
+</script>
+
+</body>
+</html>
