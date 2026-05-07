@@ -33,7 +33,7 @@ function goAutoFeedback(){
 
   setTimeout(()=>{
     window.location.href =
-      "https://afb-backend-wyjf.onrender.com";
+      "https://auto-feedback-backend.onrender.com";
   }, 800); // delay dikit biar animasi keliatan
 
 }
