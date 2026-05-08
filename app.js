@@ -5,29 +5,18 @@
 */
 
 function showLoading(){
-  let old = document.getElementById("loadingOverlay");
-  if(old) old.remove();
+  let existing = document.getElementById("loadingOverlay");
+  if(existing) existing.remove();
 
   const div = document.createElement("div");
+  div.className = "loading show";
   div.id = "loadingOverlay";
 
-  div.style.position = "fixed";
-  div.style.inset = "0";
-  div.style.background = "rgba(2,6,23,0.85)";
-  div.style.display = "flex";
-  div.style.justifyContent = "center";
-  div.style.alignItems = "center";
-  div.style.zIndex = "9999";
-
   div.innerHTML = `
-    <div style="
-      width:60px;
-      height:60px;
-      border:4px solid rgba(255,255,255,.1);
-      border-top:4px solid #22d3ee;
-      border-radius:50%;
-      animation:spin 1s linear infinite;
-    "></div>
+    <div class="loading-content">
+      <div class="spinner"></div>
+      <div class="loading-text">INITIALIZING SYSTEM...</div>
+    </div>
   `;
 
   document.body.appendChild(div);
@@ -47,52 +36,33 @@ function hideLoading(){
 function goAutoFeedback(){
   showLoading();
 
-  setTimeout(() => {
+  setTimeout(()=>{
     window.location.href = "https://auto-feedback-backend.onrender.com";
-  }, 500);
+  }, 600);
 }
 
 function goSchedule(){
   showLoading();
 
-  setTimeout(() => {
+  setTimeout(()=>{
     window.location.href = "https://autofeedback-backend.onrender.com/";
-  }, 500);
+  }, 600);
 }
 
 /*
 |--------------------------------------------------------------------------
-| INIT (PENTING)
+| FORCE FIX (kalau loading nyangkut)
 |--------------------------------------------------------------------------
 */
 
-document.addEventListener("DOMContentLoaded", () => {
-
-  // optional: attach manual kalau onclick di HTML gagal
-  const autoBtn = document.querySelector(".btn-auto");
-  const scheduleBtn = document.querySelector(".btn-schedule");
-
-  if(autoBtn){
-    autoBtn.addEventListener("click", goAutoFeedback);
-  }
-
-  if(scheduleBtn){
-    scheduleBtn.addEventListener("click", goSchedule);
-  }
-
+window.addEventListener("load", () => {
+  hideLoading(); // pastikan bersih
 });
 
 /*
 |--------------------------------------------------------------------------
-| ANIMATION STYLE (inject)
+| DEBUG (optional)
 |--------------------------------------------------------------------------
 */
 
-const style = document.createElement("style");
-style.innerHTML = `
-@keyframes spin{
-  0%{ transform:rotate(0deg); }
-  100%{ transform:rotate(360deg); }
-}
-`;
-document.head.appendChild(style);
+console.log("App.js loaded ✅");
