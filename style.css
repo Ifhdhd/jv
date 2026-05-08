@@ -8,150 +8,129 @@
 
 body{
   font-family:'Inter',sans-serif;
+  background:#020617;
+  color:white;
   height:100vh;
   display:flex;
   justify-content:center;
   align-items:center;
-
-  background:
-    radial-gradient(circle at 20% 20%, rgba(34,211,238,.15), transparent),
-    radial-gradient(circle at 80% 80%, rgba(59,130,246,.15), transparent),
-    #020617;
-
-  color:white;
   overflow:hidden;
 }
 
-/* GRID EFFECT */
-body::before{
-  content:"";
-  position:absolute;
+/* GRID BACKGROUND */
+.bg-lines{
+  position:fixed;
   inset:0;
-
-  background-image:
-    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
-
+  background:
+    linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
   background-size:40px 40px;
   z-index:-1;
 }
 
 /* WRAPPER */
 .landing{
-  text-align:center;
-  max-width:500px;
   width:100%;
-  padding:40px;
+  max-width:500px;
+  padding:20px;
+}
 
-  border-radius:30px;
-
-  background:
-    rgba(15,23,42,.6);
-
-  backdrop-filter:blur(20px);
-
+/* CARD */
+.card{
+  background:rgba(15,23,42,.8);
   border:1px solid rgba(56,189,248,.2);
-
+  border-radius:25px;
+  padding:40px 30px;
+  text-align:center;
+  backdrop-filter:blur(20px);
   box-shadow:
     0 0 40px rgba(56,189,248,.15),
     inset 0 0 20px rgba(56,189,248,.05);
+  position:relative;
+  overflow:hidden;
+}
+
+/* SCAN EFFECT */
+.card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-60%;
+  width:60%;
+  height:100%;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.08),
+    transparent
+  );
+  transform:skewX(-25deg);
+  animation:scan 6s linear infinite;
+}
+
+@keyframes scan{
+  0%{ left:-60%; }
+  100%{ left:120%; }
 }
 
 /* TITLE */
-.landing h1{
+.title{
   font-family:'Orbitron',sans-serif;
-  font-size:36px;
+  font-size:32px;
+  letter-spacing:2px;
+  color:#22d3ee;
   margin-bottom:10px;
-
-  background:linear-gradient(90deg,#22d3ee,#60a5fa);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-
   text-shadow:
-    0 0 20px rgba(34,211,238,.4);
-
-  animation: glow 2s infinite alternate;
-}
-
-@keyframes glow{
-  from{
-    text-shadow:0 0 10px rgba(34,211,238,.3);
-  }
-  to{
-    text-shadow:0 0 25px rgba(34,211,238,.7);
-  }
+    0 0 10px rgba(34,211,238,.8),
+    0 0 30px rgba(34,211,238,.5);
 }
 
 /* SUBTITLE */
-.landing p{
+.subtitle{
+  font-size:13px;
   color:#94a3b8;
   margin-bottom:35px;
-  font-size:14px;
 }
 
 /* BUTTON GROUP */
 .btn-group{
   display:flex;
   flex-direction:column;
-  gap:18px;
+  gap:20px;
 }
 
 /* BUTTON BASE */
-.btn-landing{
-  position:relative;
+.btn{
   padding:18px;
+  border:none;
   border-radius:18px;
   font-weight:700;
-  font-size:15px;
   letter-spacing:1px;
   cursor:pointer;
-  border:none;
-  overflow:hidden;
   transition:.3s;
+  font-size:14px;
 }
 
-/* GLOW EFFECT */
-.btn-landing::before{
-  content:"";
-  position:absolute;
-  inset:0;
-
-  background:
-    linear-gradient(
-      120deg,
-      transparent,
-      rgba(255,255,255,.25),
-      transparent
-    );
-
-  transform:translateX(-100%);
-}
-
-.btn-landing:hover::before{
-  transform:translateX(100%);
-  transition:.6s;
-}
-
-/* AUTO BUTTON */
-.btn-auto{
+/* BLUE BUTTON */
+.neon-blue{
   background:linear-gradient(90deg,#2563eb,#06b6d4);
-  box-shadow:0 0 25px rgba(37,99,235,.4);
+  box-shadow:0 0 20px rgba(37,99,235,.5);
 }
 
-.btn-auto:hover{
-  transform:translateY(-4px) scale(1.02);
-  box-shadow:0 0 40px rgba(37,99,235,.7);
+.neon-blue:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 30px rgba(37,99,235,.7);
 }
 
-/* SCHEDULE BUTTON */
-.btn-schedule{
+/* GREEN BUTTON */
+.neon-green{
   background:linear-gradient(90deg,#22c55e,#16a34a);
-  box-shadow:0 0 25px rgba(34,197,94,.4);
+  box-shadow:0 0 20px rgba(34,197,94,.5);
 }
 
-.btn-schedule:hover{
-  transform:translateY(-4px) scale(1.02);
-  box-shadow:0 0 40px rgba(34,197,94,.7);
+.neon-green:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 30px rgba(34,197,94,.7);
 }
 
 /* FOOTER */
@@ -159,5 +138,5 @@ body::before{
   margin-top:35px;
   font-size:12px;
   color:#64748b;
-  opacity:.7;
+  letter-spacing:1px;
 }
