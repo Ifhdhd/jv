@@ -13,38 +13,59 @@
 
 <body>
 
+<!-- BACKGROUND GRID -->
 <div class="bg-lines"></div>
 
+<!-- MAIN -->
 <div class="landing">
 
   <div class="card">
 
-    <h1 class="title">AUTO FEEDBACK</h1>
+    <h1 class="title" data-text="Auto Feedback System">
+      Auto Feedback System
+    </h1>
 
     <p class="subtitle">
-      Control Panel System
+      Pilih sistem yang ingin dijalankan
     </p>
 
     <div class="btn-group">
 
-      <button class="btn neon-blue" onclick="goAutoFeedback()">
-        🚀 Auto Feedback
+      <button
+        class="btn neon-blue"
+        onclick="goAutoFeedback()"
+      >
+        🚀 AUTO FEEDBACK
       </button>
 
-      <button class="btn neon-green" onclick="goSchedule()">
-        📅 Schedule Feedback
+      <button
+        class="btn neon-green"
+        onclick="goSchedule()"
+      >
+        📅 SCHEDULE FEEDBACK
       </button>
 
     </div>
 
     <div class="footer">
-      SYSTEM READY ⚡
+      SYSTEM READY • DEFERX ⚡
     </div>
 
   </div>
 
 </div>
 
+<!-- LOADING -->
+<div id="loadingOverlay" class="loading">
+  <div class="loading-content">
+    <div class="spinner"></div>
+    <div class="loading-text">
+      INITIALIZING SYSTEM...
+    </div>
+  </div>
+</div>
+
+<!-- SCRIPT -->
 <script src="app.js"></script>
 
 </body>
