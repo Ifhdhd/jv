@@ -29,7 +29,7 @@ function hideLoading(){
 
 /*
 |--------------------------------------------------------------------------
-| REDIRECT (FIX)
+| REDIRECT
 |--------------------------------------------------------------------------
 */
 
@@ -38,6 +38,14 @@ function goAutoFeedback(){
 
   setTimeout(()=>{
     window.location.href = "https://auto-feedback-backend.onrender.com";
+  }, 600);
+}
+
+function goAutoKerjakan(){
+  showLoading();
+
+  setTimeout(()=>{
+    window.location.href = "https://nntn.onrender.com";
   }, 600);
 }
 
@@ -51,17 +59,17 @@ function goSchedule(){
 
 /*
 |--------------------------------------------------------------------------
-| FORCE FIX (kalau loading nyangkut)
+| FORCE FIX (biar loading gak nyangkut)
 |--------------------------------------------------------------------------
 */
 
 window.addEventListener("load", () => {
-  hideLoading(); // pastikan bersih
+  hideLoading();
 });
 
 /*
 |--------------------------------------------------------------------------
-| DEBUG (optional)
+| DEBUG
 |--------------------------------------------------------------------------
 */
 
